@@ -29,4 +29,13 @@ RSpec.describe Book, type: :model do
           end
         end
       end
+
+      describe "check that a @book instance can be deleted" do
+        context "Test Delete" do
+          it "deletes a book from the database" do
+            @book.destroy
+            expect(Book.find_by_name("Six of Crows")).to be_nil
+          end
+        end
+      end
 end
